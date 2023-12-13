@@ -65,9 +65,9 @@ export class GoogleapisProvider implements EntityProvider {
       return Promise.resolve();
     }
     console.log(`${root} directory missing`);
-    fs.mkdirSync("temp", { recursive: true });
+    fs.mkdirSync(root, { recursive: true });
 
-    const result = await execAsync(`git clone --depth 1 ${repo} temp`);
+    const result = await execAsync(`git clone --depth 1 ${repo} ${root}`);
     console.log(`Cloned googleapis ${result}`);
     return Promise.resolve();
   }
